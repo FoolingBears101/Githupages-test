@@ -44,9 +44,10 @@
         .submit-button:hover {
             background-color: #ff4500;
         }
-        img {
+        #duck-image {
             margin-top: 30px;
             width: 200px;
+            display: none;
         }
     </style>
 </head>
@@ -64,18 +65,17 @@
         <!-- The story of the duck will appear here after submission -->
     </div>
 
-    <img src="https://example.com/plastic-duck.png" alt="Plastic Duck Image">
+    <img id="duck-image" src="https://example.com/plastic-duck.png" alt="Plastic Duck Image">
     
     <script>
         function showDuckStory() {
             const duckNumber = document.getElementById('duck-number').value;
             const resultDiv = document.getElementById('result');
+            const duckImage = document.getElementById('duck-image');
 
-            // Placeholder for the duck story
             let duckStory;
+            let duckImageSrc = '';
 
-            // Here, you would typically fetch the duck's story from a database
-            // based on the duckNumber. For now, we'll use a simple example.
             if (duckNumber === "001") {
                 duckStory = `
                     <h2>Duck #001 - Quackers the Original</h2>
@@ -83,17 +83,16 @@
                     <p>Duck #001, known as "Quackers the Original," is a bold and curious explorer. He’s the first of his kind, always leading the way with a fearless spirit and a love for adventure.</p>
                     <p><strong>Background Story:</strong> Quackers hatched in a peaceful pond but was never content to stay put. Driven by curiosity, he set off on a daring journey to find a legendary waterfall deep in the forest. After braving wild terrains and countless challenges, Quackers discovered the hidden waterfall and returned as a hero.</p>
                     <p>Now, Duck #001 represents the spirit of discovery. If you’ve found this duck, you’ve uncovered a piece of history—the very first adventurer who inspired all the others to explore the world.</p>
-                    <img src="https://ibb.co/R6j1Fb7" alt="Quackers the Original">
                 `;
-            } else if (duckNumber === "123") {
-                duckStory = "<h2>Duck #123</h2><p>This duck represents resilience and was part of a special event in 2024.</p>";
-            } else if (duckNumber === "456") {
-                duckStory = "<h2>Duck #456</h2><p>This duck is a symbol of adventure, found during an epic race in the wild.</p>";
+                duckImageSrc = 'path/to/your/duck001-image.png'; // Replace with the actual path to Duck #001 image
             } else {
                 duckStory = "<h2>Unknown Duck</h2><p>We couldn't find a story for this number. Please check the number or contact support.</p>";
+                duckImageSrc = 'https://example.com/plastic-duck.png'; // Default image
             }
 
             resultDiv.innerHTML = duckStory;
+            duckImage.src = duckImageSrc;
+            duckImage.style.display = 'block'; // Make sure the image is visible
         }
     </script>
 </body>
