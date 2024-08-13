@@ -3,20 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Page</title>
+    <title>Discover Your Duck's Story</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 50px;
+            background-color: #fafafa;
+            color: #333;
         }
         h1 {
-            color: #333;
+            color: #ff6347;
+            font-size: 2.5em;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .input-container {
+            margin: 20px auto;
+            max-width: 400px;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            font-size: 1.2em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .submit-button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #ff6347;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .submit-button:hover {
+            background-color: #ff4500;
+        }
+        img {
+            margin-top: 30px;
+            width: 200px;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to My GitHub Page!</h1>
-    <p>This is a simple website hosted on GitHub Pages.</p>
+    <h1>Discover Your Duck's Story</h1>
+    <p>You've found a special duck with a unique number. Enter the number below to learn more about what it represents.</p>
+    
+    <div class="input-container">
+        <input type="text" id="duck-number" placeholder="Enter the duck number" />
+        <br />
+        <button class="submit-button" onclick="showDuckStory()">Submit</button>
+    </div>
+    
+    <div id="result" style="margin-top: 30px;">
+        <!-- The story of the duck will appear here after submission -->
+    </div>
+
+    <img src="https://example.com/plastic-duck.png" alt="Plastic Duck Image">
+    
+    <script>
+        function showDuckStory() {
+            const duckNumber = document.getElementById('duck-number').value;
+            const resultDiv = document.getElementById('result');
+
+            // Placeholder for the duck story
+            let duckStory;
+
+            // Here, you would typically fetch the duck's story from a database
+            // based on the duckNumber. For now, we'll use a simple example.
+            if (duckNumber === "123") {
+                duckStory = "<h2>Duck #123</h2><p>This duck represents resilience and was part of a special event in 2024.</p>";
+            } else if (duckNumber === "456") {
+                duckStory = "<h2>Duck #456</h2><p>This duck is a symbol of adventure, found during an epic race in the wild.</p>";
+            } else {
+                duckStory = "<h2>Unknown Duck</h2><p>We couldn't find a story for this number. Please check the number or contact support.</p>";
+            }
+
+            resultDiv.innerHTML = duckStory;
+        }
+    </script>
 </body>
 </html>
