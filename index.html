@@ -4,26 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discover Your Duck's Story</title>
+    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
-<script data-goatcounter="https://didyoufindtheduck.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
 <body>
-    <h1>Discover Your Duck's Story</h1>
-    <p>You've found a special duck with a unique number. Enter the number below to learn more about what it represents.</p>
-    
+    <h1>You found a duck!</h1>
+    <p>Scan the QR code on your duck to learn its story and set your location.</p>
+
+    <!-- QR code scanner container -->
+    <div id="qr-reader" style="width:500px;"></div>
+    <div id="qr-reader-results"></div>
+
     <div class="input-container">
-        <input type="text" id="duck-number" placeholder="Enter the duck number" />
+        <input type="text" id="duck-number" placeholder="Enter duck number" />
         <br />
-        <button class="submit-button" onclick="showDuckStory()">Submit</button>
+        <button class="submit-button" onclick="handleManualDuckEntry()">Submit</button>
     </div>
-    
-    <div id="result" style="margin-top: 30px;">
-        <!-- The story of the duck will appear here after submission -->
+
+    <div id="result" style="margin-top: 30px;"></div>
+
+    <!-- This section is for the location input, only visible when a valid hex ID is provided -->
+    <div id="location-input-container" style="display:none;">
+        <p><strong>Enter your current location:</strong></p>
+        <input type="text" id="user-location" placeholder="Enter your location" />
+        <br />
+        <button class="submit-button" onclick="submitLocation()">Submit Location</button>
     </div>
 
     <img id="duck-image" src="https://i.ibb.co/q5R3Hrw/f8f338638cfd42fda140984d4400d81f-removebg-preview.png" alt="Plastic Duck Image">
-    
+
     <script src="script.js"></script>
 </body>
 </html>
